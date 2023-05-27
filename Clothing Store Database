@@ -1,0 +1,44 @@
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, size TEXT, colour TEXT);
+
+INSERT INTO clothing VALUES ( 15, "Tank top" , 8.00, 5 ,"Medium", "red");
+
+INSERT INTO clothing VALUES (16,"Skinny Jeans", 23.00, 2,"Large","blue");
+
+INSERT INTO clothing VALUES (17,"T-Shirt", 10.00 , 2 , "Small", "Blue");
+
+INSERT INTO clothing VALUES (18,"Shorts", 9.50, 23, "Medium", "White");
+
+INSERT INTO clothing VALUES (19,"Dress", 54.99, 1, "Small","Purple");
+
+INSERT INTO clothing VALUES (20,"Hoodies", 30.00, 35, "Small", "Orange");
+
+INSERT INTO clothing VALUES (21,"Socks", 8.99, 20, "Large", "White");
+
+INSERT INTO clothing VALUES (22,"Blazer", 85.99, 5, "Medium", "Dark Blue");
+
+INSERT INTO clothing VALUES (23,"Polo Shirt" , 40.00 , 33, "Small" , "Yellow");
+
+INSERT INTO clothing VALUES (24, "Winter Coat" , 125.50, 1, "Large", "Black");
+
+INSERT INTO clothing VALUES (25, "Scarf" , 5.99, 55, "One Size", "Beije");
+
+
+--Display Database with prices of clothing below 10.00 in descending order.
+SELECT *
+FROM clothing
+WHERE price <10 
+ORDER BY price DESC;
+
+--What is the Average price for Medium Size Clothing in the store?
+SELECT AVG(price)
+FROM clothing 
+WHERE size="Medium";
+
+-- Demonstrate if we have a good amount of stock or low stock on each piece of clothing sold at the store.
+SELECT name,
+ CASE
+  WHEN quantity >15 THEN "Low Stock Amount"
+  WHEN quantity <15 THEN "Good Stock Amount"
+  ELSE "REVIEW"
+ END
+FROM clothing;
